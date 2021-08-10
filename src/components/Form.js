@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Form.css'
 function Form() {
-    const [city,setCity]=useState()
+    const [city,setCity]=useState([])
     const [search,setSearch]=useState("")
     const API_KEY='aac911b30524b96ac3f74db9d8ff6bee';
     useEffect( ()=>{
@@ -9,6 +9,7 @@ function Form() {
             const url=`http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${API_KEY}`;
             const response= await fetch(url)
             const resJSON=await response.json();
+            // console.log(resJSON.main)
            setCity(resJSON.main)
            
         }
